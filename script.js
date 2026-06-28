@@ -25,3 +25,41 @@ document.querySelector(".run-btn").addEventListener("click", () => {
 document.querySelector(".save-btn").addEventListener("click", () => {
   console.log("Save & Proceed clicked");
 });
+
+// Draggable splitter between problem panel and editor panel
+const splitter = document.getElementById("splitter");
+const problemPanel = document.querySelector(".problem-panel");
+const appBody = document.querySelector(".app-body");
+const rail = document.querySelector(".rail");
+
+let dragging = false;
+
+splitter.addEventListener("mousedown", (e) => {
+  dragging = true;
+  splitter.classList.add("dragging");
+  document.body.style.cursor = "col-resize";
+  document.body.style.userSelect = "none";
+  e.preventDefault();
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!dragging) return;
+  const railWidth = rail.offsetWidth;
+  const available = appBody.offsetWidth - railWidth - splitter.offsetWidth;
+  let newWidth = e.clientX - railWidth;
+
+  // clamp so neither side collapses (min 280px each)
+  const min = 280;
+  if (newWidth < min) newWidth = min;
+  if (newWidth > available - min) newWidth = available - min;
+
+  problemPanel.style.width = newWidth + "px";
+});
+
+document.addEventListener("mouseup", () => {
+  if (!dragging) return;
+  dragging = false;
+  splitter.classList.remove("dragging");
+  document.body.style.cursor = "";
+  document.body.style.userSelect = "";
+});
