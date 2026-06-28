@@ -63,7 +63,7 @@
     </nav>
 
     <!-- ===== Problem Description Panel ===== -->
-    <section class="problem-panel">
+    <section class="problem-panel" style="display:none;">
       <div class="problem-header">
         <span class="bookmark">🔖</span>
         <h1 class="problem-title">Ride-Share Surge Pricing Replay</h1>
@@ -124,7 +124,7 @@ t_N f_N</pre>
     </section>
 
     <!-- ===== Resizable Divider ===== -->
-    <div class="splitter" id="splitter"></div>
+    <div class="splitter" id="splitter" style="display:none;"></div>
 
     <!-- ===== Code Editor Panel ===== -->
     <section class="editor-panel">
@@ -152,10 +152,10 @@ t_N f_N</pre>
 <span class="c-cmt"> *  format_output helpers already handle the grader's input/output format;</span>
 <span class="c-cmt"> *  implement your algorithm in solve(...) below.</span>
 <span class="c-cmt"> */</span>
-<span class="c-pre">#include</span> <span class="c-str">&lt;iostream&gt;</span>
-<span class="c-pre">#include</span> <span class="c-str">&lt;vector&gt;</span>
+<span class="c-pre">#include</span> &lt;<span class="c-hdr-yellow">iostream</span>&gt;
+<span class="c-pre">#include</span> &lt;<span class="c-hdr-sky">vector</span>&gt;
 
-<span class="c-key">using namespace</span> std;
+<span class="c-key">using namespace</span> <span class="c-std">std</span>;
 
 <span class="c-key">struct</span> <span class="c-typ">InputData</span> {
     <span class="c-typ">int</span> N;

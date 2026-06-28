@@ -408,12 +408,15 @@ body {
 
 /* syntax colors */
 .c-cmt { color: #6a9955; }
-.c-key { color: #c586c0; }
+.c-key { color: #ff9d4d; }
 .c-typ { color: #4ec9b0; }
 .c-fn  { color: #dcdcaa; }
 .c-str { color: #ce9178; }
 .c-num { color: #b5cea8; }
-.c-pre { color: #c586c0; }
+.c-pre { color: #ff9d4d; }
+.c-hdr-yellow { color: #ffd866; }
+.c-hdr-sky { color: #7ec8ff; }
+.c-std { color: #4a9eff; }
 
 /* ============ STATUS BAR ============ */
 .status-bar {
