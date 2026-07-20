@@ -62,81 +62,9 @@
       </div>
     </nav>
 
-    <!-- ===== Problem Description Panel ===== -->
-    <section class="problem-panel" style="display:none;">
-      <div class="problem-header">
-        <span class="bookmark">🔖</span>
-        <h1 class="problem-title">Ride-Share Surge Pricing Replay</h1>
-      </div>
-
-      <div class="problem-content">
-        <h2>Problem Description</h2>
-        <p>
-          A ride-share company is replaying a stream of pricing logs to detect anomalies. Each log entry is a ride
-          request with a <strong>timestamp t</strong> (in seconds since a fixed reference epoch) and a <strong>fare f</strong> (in cents). The
-          pricing-fairness team has a question: for every ride in the log, was its fare in the "top 10%" of fares
-          charged within the past 5 minutes (300 seconds)?
-        </p>
-        <p>
-          Concretely: ride i is "flagged as surge-anomalous" iff its fare f_i is <strong>strictly greater</strong> than the 90th
-          percentile of fares in its window — the current ride together with every <strong>earlier</strong> ride whose timestamp lies
-          in (t_i − 300, t_i] (a half-open window ending at t_i, looking back 300 seconds). Rides are
-          replayed in the order given, which is chronological; when several rides share a timestamp, their listed
-          order is their order in time. The 90th percentile is computed using the "nearest-rank" convention: with n
-          rides in the window, the 90th-percentile fare is the fare of the [0.9 × n]-th ride after sorting the
-          window's fares in ascending order. The current ride i itself counts toward the window (so n ≥ 1).
-        </p>
-        <p>
-          <strong>Small windows never flag (by design).</strong> Since the current ride is part of its own window and [0.9 × n]
-          = n for every n ≤ 9, the 90th-percentile fare for those sizes is exactly the window's <strong>maximum</strong> — and a
-          ride can never be "strictly" greater than a maximum it belongs to. So <strong>whenever a ride's window holds
-          fewer than 10 rides, its output is 0</strong>. The earliest a ride can be flagged is when its window contains at
-          least 10 rides, where k = [0.9 × 10] = 9 gives a genuine percentile cutoff below the maximum. This is
-          intended behavior, not an edge case to "fix".
-        </p>
-        <p>
-          Output, for each ride in chronological order, 1 if it is surge-anomalous, 0 otherwise.
-        </p>
-
-        <h2>Input</h2>
-        <ul>
-          <li>N — number of rides</li>
-          <li>rides[i] = (t_i, f_i) — timestamp (seconds since a fixed reference epoch) and fare (cents)</li>
-          <li>Rides are given in <strong>non-decreasing</strong> order of timestamp; <strong>multiple rides may share the same
-            timestamp</strong></li>
-        </ul>
-
-        <h2>Input Format</h2>
-        <div class="input-format-box">
-          <pre>N
-t_1 f_1
-t_2 f_2
-...
-t_N f_N</pre>
-        </div>
-
-        <h3>Detailed Format:</h3>
-        <ul>
-          <li>Line 1: N</li>
-          <li>Lines 2..N+1: each line contains t_i f_i, with 0 ≤ t_i ≤ 10^9 and 1 ≤ f_i ≤ 10^9</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== Resizable Divider ===== -->
-    <div class="splitter" id="splitter" style="display:none;"></div>
-
     <!-- ===== Code Editor Panel ===== -->
     <section class="editor-panel">
       <div class="editor-toolbar">
-        <div class="lang-group">
-          <span class="lang-label">Language</span>
-          <div class="lang-select">
-            <span>C++23</span>
-            <span class="caret">▾</span>
-          </div>
-          <span class="info-icon" title="Language info">ⓘ</span>
-        </div>
         <div class="editor-toolbar-right">
           <button class="et-icon" title="Reset">⟳</button>
           <button class="et-icon" title="Fullscreen">⛶</button>

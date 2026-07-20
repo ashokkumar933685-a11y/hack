@@ -31,13 +31,7 @@ body {
 
 /* ============ TOP BAR ============ */
 .topbar {
-  height: 48px;
-  background: #050607;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
+  display: none;
 }
 
 .topbar-left {
@@ -143,18 +137,12 @@ body {
 /* ============ APP BODY ============ */
 .app-body {
   display: flex;
-  height: calc(100vh - 48px);
+  height: 100vh;
 }
 
 /* ============ RAIL ============ */
 .rail {
-  width: 48px;
-  background: #050607;
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px 0;
+  display: none;
 }
 
 .rail-top {
@@ -333,36 +321,10 @@ body {
   background: var(--panel);
 }
 
-.lang-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.lang-label { color: var(--text-dim); font-size: 13px; }
-
-.lang-select {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  background: var(--panel-2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 5px 10px;
-  color: var(--text-bright);
-  font-size: 13px;
-  cursor: pointer;
-  min-width: 130px;
-  justify-content: space-between;
-}
-
-.caret { color: var(--text-dim); font-size: 11px; }
-
-.info-icon { color: var(--text-dim); cursor: pointer; font-size: 14px; }
-
 .editor-toolbar-right {
   display: flex;
   gap: 12px;
+  margin-left: auto;
 }
 
 .et-icon {
@@ -420,15 +382,7 @@ body {
 
 /* ============ STATUS BAR ============ */
 .status-bar {
-  height: 26px;
-  background: var(--panel);
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  font-size: 12px;
-  color: var(--text-dim);
+  display: none;
 }
 
 .status-right {
@@ -441,13 +395,7 @@ body {
 
 /* ============ RESULTS BAR ============ */
 .results-bar {
-  height: 44px;
-  background: var(--panel);
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
+  display: none;
 }
 
 .results-toggle {
